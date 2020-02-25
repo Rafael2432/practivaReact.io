@@ -1,0 +1,36 @@
+.containerForm{
+background-color:grey;
+height:100px;
+/* width:220px; */
+border:solid black 1px;
+border-radius:10px;
+padding:30px;
+box-sizing:border-box;
+margin:30px; 
+box-sizing:border-box;
+padding:10px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+.passwordText{
+    border-radius:10px;
+    box-sizing:border-box;
+    padding:4px 4px 4px 9px;
+    border:solid black 3px;
+            background-color:beige;
+
+   
+
+}
+.formButton{
+    width:60px;
+    height:30px;
+    border-radius:10px;
+        background-color:lime;
+        border:solid black 3px;
+font-weight:bold;
+font-family:arial;
+align-self:flex-start;
+}

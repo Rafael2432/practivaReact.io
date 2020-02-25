@@ -1,0 +1,76 @@
+body{
+/* min-height:100vh;
+width:100vw; */
+display:flex;
+justify-content:center;
+/* align-items:center; */
+
+background-color:orange;
+
+}
+.padre{
+height:100vh;
+width:100vw;
+display:flex;
+flex-direction:column;
+align-items:center;
+
+
+}
+.container{
+height:250px;
+width:350px;
+background-color:black;
+color:white;
+/* border: solid black 3px; */
+border-radius: 20px;
+display:flex;
+flex-direction:column;
+border: 2px solid black;
+}
+.ban{
+ border-radius:18px 18px 0px 0px   
+}
+@font-face{
+font-family:"sugar";
+src:url('./typo/sugar.ttf');
+}
+.section{
+
+    color:white;
+    display:flex;
+ border-top:solid black 4px;
+justify-content: space-around;
+
+font-family: sugar;
+position:relative;
+ 
+}
+
+.footer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:skyblue;
+    border-radius:0px 0px 16px 16px;
+    position:relative;
+    height:30px;
+    top:22px;
+    
+}
+.avatar{
+    margin-top:10px;
+    position:relative;
+    top:5px;
+    right:60px
+
+}
+h3{
+    font-size:2.1em;
+    position:absolute;
+    top:-16px;
+    left:180px;
+    right:0;
+    
+
+}
