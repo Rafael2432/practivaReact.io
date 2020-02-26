@@ -1,12 +1,11 @@
 import React from 'react'
 import Ban from '../images/winter.jpg'
 import '../styles/users.css'
-import DarpleForm from './darpleForm'
 
 class profile extends React.Component{
     render(){
         return(
-            <div className='padre'>
+            
              <div className='container'>
         
             <header className='header' >
@@ -21,8 +20,7 @@ class profile extends React.Component{
 
             <footer className='footer'>Darple</footer>
             </div>
-            <DarpleForm/>
-            </div>
+        
         )
     }
 }

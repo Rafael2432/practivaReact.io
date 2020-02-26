@@ -1,6 +1,6 @@
 .containerForm{
 background-color:grey;
-height:100px;
+/* height:100px; */
 /* width:220px; */
 border:solid black 1px;
 border-radius:10px;
@@ -14,7 +14,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 }
-.passwordText{
+.passwordText, .nameText, .lastNameText, .emailText{
     border-radius:10px;
     box-sizing:border-box;
     padding:4px 4px 4px 9px;

@@ -2,20 +2,45 @@ import React from 'react'
 import '../styles/darpleForm.css'
 
 class form extends React.Component{
- submit = e =>{
-        console.log('se ha intentado enviar el formulario')
-        e.preventDefault()
+state={}
+ handleClick= e =>{
+        console.log(this.props.state)
+      
     } 
-    handleClick =  e =>{
-   console.log({value:e.target.value})
-    }
+    
 
     render(){
         return(
-   <form className= 'containerForm' onSubmit={this.submit} >
-   <input onChange={this.handleClick} className="passwordText" type='text' placeholder="Password"/>
+   <form className= 'containerForm'  >
+
+     <input
+      onChange={this.props.change}
+       value={this.props.state.form.Name} 
+       name="Name" 
+       className="nameText"
+        type='text'
+         placeholder="Name"/>
    <br/>
-   <input className="formButton"   type='button' value='Ready'/>
+   <input
+      onChange={this.props.change}
+       value={this.props.state.form['Last name']} 
+       name="Last name" 
+       className="lastNameText"
+        type='text'
+         placeholder="Last Name"/>
+   <br/>
+
+   <input
+    onChange={this.props.change}
+     value={this.props.state.form.Email} 
+     name="Email" 
+     className="emailText" 
+     type='text' 
+     placeholder="Email"/>
+   <br/>
+
+   <input className="formButton" onClick={this.handleClick}  type='button' value='Ready'/>
+   
    </form>
         )
     }
