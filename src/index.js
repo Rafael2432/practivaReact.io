@@ -1,12 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import User from './components/users.js'
-import avatar from './images/mathiasVeridico.png'
+import MainPage from './components/pages.js'
 
 
 const container2=document.getElementById('container2')
-ReactDOM.render(<User
-name='Sacoto'
-lastName="Santander"
-avatar={avatar}
-/>, container2)
+ReactDOM.render(<MainPage/>, container2)
