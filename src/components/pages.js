@@ -5,6 +5,7 @@ import DarpleForm from './darpleForm.js'
 
 
 class mainPage extends React.Component{
+
     state={form:{
         Name:'',
         'Last name':'',
@@ -37,4 +38,5 @@ this.setState({
         )
     }
 }
-   export default mainPage
+
+export default mainPage
