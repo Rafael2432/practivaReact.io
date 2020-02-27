@@ -18,7 +18,7 @@ class profile extends React.Component{
             <h3>{this.props.name}<br/>{this.props.lastName}</h3>
             </section>
 
-            <footer className='footer'>Darple</footer>
+            <footer className='footer'>{this.props.email}</footer>
             </div>
         
         )

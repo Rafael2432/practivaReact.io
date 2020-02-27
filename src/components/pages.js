@@ -28,6 +28,7 @@ this.setState({
         <User
         name={this.state.form.Name}
         lastName={this.state.form['Last name']}
+        email={this.state.form.Email}
         avatar={avatar}/>
 
         <DarpleForm  state={this.state} change={this.onChange} />
