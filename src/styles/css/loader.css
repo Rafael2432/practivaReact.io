@@ -1,0 +1,17 @@
+.loaderPort {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.white {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(163, 163, 163);
+  border-radius: 50%;
+}
+.orange {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(207, 104, 8);
+  border-radius: 50%;
+}

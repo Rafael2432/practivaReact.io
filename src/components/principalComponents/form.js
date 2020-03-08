@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/darpleForm.css";
+import "../../styles/css/form.css";
 
 class form extends React.Component {
   state = {};

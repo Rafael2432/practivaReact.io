@@ -1,0 +1,15 @@
+body {
+  background-color: black;
+}
+.tituloError {
+  color: white;
+  font-family: monospace;
+  font-size: 4em;
+  margin-left: 40px;
+}
+.parrafoError {
+  color: rgb(116, 102, 102);
+  font-family: monospace;
+  font-size: 1.5em;
+  margin-left: 40px;
+}

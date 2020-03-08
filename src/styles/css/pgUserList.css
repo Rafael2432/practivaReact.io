@@ -1,0 +1,58 @@
+.buttonList,
+.buttonUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.2em;
+  font-family: impact;
+  border: solid rgb(255, 255, 255) 3px;
+  border-radius: 10px;
+  width: 90px;
+  height: 35px;
+  background-color: rgb(122, 202, 10);
+  text-decoration: none;
+}
+.buttonUser {
+  position: relative;
+  bottom: 15px;
+  left: 120px;
+}
+.button2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.1em;
+  font-family: impact;
+  border: solid rgb(255, 255, 255) 3px;
+  border-radius: 10px;
+  width: 135px;
+  height: 35px;
+  background-color: rgb(202, 71, 10);
+  /* align-self: flex-end; */
+  text-decoration: none;
+  /* margin-bottom: 30px; */
+  cursor: pointer;
+}
+.diosito {
+  margin-top: 30px;
+  display: flex;
+
+  align-items: center;
+  width: 530px;
+  flex-direction: column;
+  color: white;
+}
+.estorbo {
+  display: flex;
+  justify-content: center;
+  /* flex-direction: row; */
+}
+.estorbo2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 70%;
+  height: 100px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/badgecito.css";
+import "../../styles/css/eachUser.css";
 
-class badgecito extends React.Component {
+class eachUser extends React.Component {
   render() {
     return (
       <div className="father">
@@ -10,28 +10,28 @@ class badgecito extends React.Component {
             className="image"
             height="110px"
             width="110"
-            src={this.props.person.avatarUrl}
+            src={this.props.person.image}
             alt="avatar"
           />
         </div>
         <div className="data">
           <p className="info" id="name">
-            {this.props.person.firstName} {this.props.person.lastName}
+            {this.props.person.name}
           </p>
           <p className="info" id="job">
-            {this.props.person.jobTitle}
+            {this.props.person.species} ({this.props.person.status})
           </p>
           <p className="info" id="email">
-            <span className="contact">Email: </span>
-            {this.props.person.email}
+            {/* <span className="contact">Email: </span> */}
+            {this.props.person.type}
           </p>
           <p className="info" id="twitter">
-            <span className="contact">Twitter: </span>
-            {this.props.person.twitter}
+            {/* <span className="contact">Twitter: </span> */}
+            {this.props.person.gender}
           </p>
         </div>
       </div>
     );
   }
 }
-export default badgecito;
+export default eachUser;

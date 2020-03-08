@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Badge from "./components/badge.js";
-// import MainPage from "./components/pages.js";
+import App from "./components/app/app.js";
 
 const container2 = document.getElementById("container2");
-ReactDOM.render(<Badge />, container2);
+ReactDOM.render(<App />, container2);
