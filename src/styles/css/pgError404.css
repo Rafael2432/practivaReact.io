@@ -4,8 +4,12 @@ body {
 .tituloError {
   color: white;
   font-family: monospace;
-  font-size: 4em;
+  font-size: 5.5em;
   margin-left: 40px;
+
+  position: relative;
+  right: 60px;
+  top: 30px;
 }
 .parrafoError {
   color: rgb(116, 102, 102);

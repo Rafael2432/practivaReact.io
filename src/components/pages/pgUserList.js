@@ -42,26 +42,34 @@ class pgUserList extends React.Component {
         }
       });
     } catch (error) {
+      this.setState({
+        loading: false,
+        error: error
+      });
       console.log("error");
-    } //falta el catch
+    }
   }
 
   render() {
-    return (
-      <div className="estorbo">
-        {!this.state.loading ? (
-          <div className="diosito">
-            <UserList data={this.state.data.results} />
-            <div className="estorbo2">
-              <Button class="buttonList" to="/users/new" message="New user" />
-              <MoreCharacters click={this.peticion.bind(this)} />
-            </div>
+    if (!this.state.error && this.state.loading) {
+      return (
+        <React.Fragment>
+          <Loader />
+        </React.Fragment>
+      );
+    } else if (!this.state.error && !this.state.loading) {
+      return (
+        <React.Fragment>
+          <UserList data={this.state.data.results} />
+          <div className="estorbo2">
+            <Button class="buttonList" to="/users/new" message="New user" />
+            <MoreCharacters click={this.peticion.bind(this)} />
           </div>
-        ) : (
-          <Loader></Loader>
-        )}
-      </div>
-    );
+        </React.Fragment>
+      );
+    } else {
+      return <h1>Error ocurred</h1>;
+    }
   }
 }
 export default pgUserList;

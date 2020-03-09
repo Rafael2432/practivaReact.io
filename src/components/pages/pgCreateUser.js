@@ -23,19 +23,17 @@ class pgCreateUser extends React.Component {
   };
   render() {
     return (
-      <div className="estorbo">
-        <div className="diosito">
-          <Button class="buttonUser" to="/users" message="Go back" />
-          <CreateUser
-            name={this.state.form.Name}
-            lastName={this.state.form["Last name"]}
-            email={this.state.form.Email}
-            avatar={avatar}
-          />
+      <React.Fragment>
+        <Button class="buttonUser" to="/users" message="Go back" />
+        <CreateUser
+          name={this.state.form.Name}
+          lastName={this.state.form["Last name"]}
+          email={this.state.form.Email}
+          avatar={avatar}
+        />
 
-          <Form state={this.state} change={this.onChange} />
-        </div>
-      </div>
+        <Form state={this.state} change={this.onChange} />
+      </React.Fragment>
     );
   }
 }

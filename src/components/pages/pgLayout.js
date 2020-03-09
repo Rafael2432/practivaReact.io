@@ -9,6 +9,8 @@ export default props => (
         Presioname
       </Link>
     </div>
-    {props.children}
+    <div className="estorbo">
+      <div className="diosito">{props.children}</div>
+    </div>
   </React.Fragment>
 );

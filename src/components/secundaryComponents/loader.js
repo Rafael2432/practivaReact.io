@@ -18,12 +18,12 @@ class loader extends React.Component {
           color: "white"
         });
       }
-    }, 180);
+    }, 160);
   }
   render() {
     return (
       <div className="loaderPort">
-        <div className={this.state.color}></div>;
+        <div className={this.state.color}></div>
       </div>
     );
   }
