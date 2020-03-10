@@ -19,13 +19,13 @@ class createUser extends React.Component {
               alt="logo"
             />
             <h3>
-              {this.props.name}
+              {this.props.name || "Name"}
               <br />
-              {this.props.lastName}
+              {this.props.lastName || "Last name"}
             </h3>
           </section>
 
-          <footer className="footer">{this.props.email}</footer>
+          <footer className="footer">{this.props.email || "Email"}</footer>
         </div>
       </React.Fragment>
     );
