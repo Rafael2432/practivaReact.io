@@ -1,41 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import CreateUser from "../principalComponents/createUser.js";
 import avatar from "../../images/mathiasVeridico.png";
 import Form from "../principalComponents/form.js";
 import Button from "../secundaryComponents/button.js";
+import Machucame2 from "../secundaryComponents/machucame2";
+import ReactDOM from "react-dom";
+import Emoji from "../secundaryComponents/emoji";
 
-class pgCreateUser extends React.Component {
-  state = {
-    form: {
-      Name: "",
-      "Last name": "",
-      Email: ""
-    }
-  };
+export default function PgCreateUser(props) {
+  const [form, onChange] = useForm();
+  const [toggle, handleClick] = useToggle();
 
-  onChange = e => {
-    this.setState({
-      form: {
-        ...this.state.form,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
-  render() {
-    return (
-      <React.Fragment>
-        <Button class="buttonUser" to="/users" message="Go back" />
-        <CreateUser
-          name={this.state.form.Name}
-          lastName={this.state.form["Last name"]}
-          email={this.state.form.Email}
-          avatar={avatar}
-        />
+  return (
+    <React.Fragment>
+      <div className="topButtons">
+        <Button click={handleClick} class="buttonUser">
+          Open Window
+        </Button>
+        <Button class="buttonUser emojiMargin" to="/users">
+          <Emoji className="emoji" symbol="👈" label="finger pointing back" />
+          Go back
+        </Button>
+      </div>
 
-        <Form state={this.state} change={this.onChange} />
-      </React.Fragment>
-    );
-  }
+      <CreateUser
+        name={form.Name}
+        lastName={form["Last name"]}
+        email={form.Email}
+        avatar={avatar}
+      />
+
+      <Form form={form} change={onChange} />
+
+      {toggle &&
+        ReactDOM.createPortal(
+          <Machucame2 toggle={handleClick} />,
+          document.getElementById("container2")
+        )}
+    </React.Fragment>
+  );
 }
 
-export default pgCreateUser;
+function useForm() {
+  const [form, setForm] = useState({
+    Name: "",
+    "Last name": "",
+    Email: ""
+  });
+
+  const onChange = e => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+  return [form, onChange];
+}
+
+function useToggle() {
+  const [toggle, setToggle] = useState(false);
+
+  const handleClick = () => {
+    if (toggle) {
+      setToggle(false);
+    } else {
+      setToggle(true);
+    }
+  };
+  return [toggle, handleClick];
+}

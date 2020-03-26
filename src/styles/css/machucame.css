@@ -1,0 +1,43 @@
+.padre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative;
+  right: 500px;
+  bottom: 100px; */
+}
+.cuadro {
+  width: 350px;
+  height: 150px;
+  background-color: grey;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  border: solid rgb(8, 8, 8) 3px;
+}
+.button {
+  padding: 5px;
+  font-family: impact;
+  font-size: 1.3em;
+  min-width: 100px;
+  height: 40px;
+  background-color: greenyellow;
+  border-radius: 20px;
+  border: none;
+  border: solid black 2px;
+}
+h1 {
+  margin: 0;
+}
+.buttonContainer {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}

@@ -1,37 +1,49 @@
 import React from "react";
 import "../../styles/css/eachUser.css";
+import Emoji from "./emoji";
 
-class eachUser extends React.Component {
-  render() {
-    return (
-      <div className="father">
-        <div className="profileImage">
-          <img
-            className="image"
-            height="110px"
-            width="110"
-            src={this.props.person.image}
-            alt="avatar"
-          />
-        </div>
-        <div className="data">
-          <p className="info" id="name">
-            {this.props.person.name}
-          </p>
-          <p className="info" id="job">
-            {this.props.person.species} ({this.props.person.status})
-          </p>
-          <p className="info" id="email">
-            {/* <span className="contact">Email: </span> */}
-            {this.props.person.type}
-          </p>
-          <p className="info" id="twitter">
-            {/* <span className="contact">Twitter: </span> */}
-            {this.props.person.gender}
-          </p>
-        </div>
-      </div>
-    );
+function Switch({ status }) {
+  //minuscula
+  switch (status) {
+    case "Alive":
+      return <Emoji symbol="😀" label="alive" className="bigger" />;
+    case "Dead":
+      return <Emoji symbol="🤕" label="dead" className="bigger" />;
+    case "unknown":
+      return <Emoji symbol="🤫" label="unknown" className="bigger" />;
+    default:
+      return "";
   }
 }
-export default eachUser;
+
+export default function EachUser({ person }) {
+  return (
+    <div className="father">
+      <div className="profileImage">
+        <img
+          className="image"
+          height="110px"
+          width="110"
+          src={person.image}
+          alt="avatar"
+        />
+      </div>
+      <div className="data">
+        <p className="info" id="name">
+          {person.name}
+        </p>
+        <p className="info" id="job">
+          {person.species} ({person.status}) {Switch(person)}
+        </p>
+        <p className="info" id="email">
+          {/* <span className="contact">Email: </span> */}
+          {person.type}
+        </p>
+        <p className="info" id="twitter">
+          {/* <span className="contact">Twitter: </span> */}
+          {person.gender}
+        </p>
+      </div>
+    </div>
+  );
+}

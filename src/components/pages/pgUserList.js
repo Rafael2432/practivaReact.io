@@ -1,75 +1,106 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "../../styles/css/pgUserList.css";
 import UserList from "../principalComponents/userList.js";
 import Button from "../secundaryComponents/button";
 import Loader from "../secundaryComponents/loader.js";
 import MoreCharacters from "../secundaryComponents/moreCharacters";
+import Search from "../principalComponents/search.js";
 
-class pgUserList extends React.Component {
-  constructor(props) {
-    super(props);
+export default function PgUserList(props) {
+  const [state, peticion] = useTry();
+  const [query, setQuery, filteredResults] = useFilteredResults(
+    state.data.results
+  );
+  // const [placeholderColor] = usePlaceholderColor("orange");
 
-    this.state = {
-      loading: true,
-      error: null,
-      nextPage: 1,
-      data: {
-        results: []
-      }
-    };
-    // console.log(this.state);
-  }
-  componentDidMount() {
-    this.peticion.call(this);
-  }
-  async peticion() {
-    try {
-      this.setState({
-        loading: true
-      });
-      const response = await fetch(
-        `https://rickandmortyapi.com/api/character/?page=${this.state.nextPage}`
-      );
-      const data = await response.json();
+  useEffect(() => {
+    peticion();
+  }, []);
 
-      this.setState({
-        loading: false,
-        error: null,
-        nextPage: this.state.nextPage + 1,
-        data: {
-          info: data.info,
-          results: [].concat(this.state.data.results, data.results)
-        }
-      });
-    } catch (error) {
-      this.setState({
-        loading: false,
-        error: error
-      });
-      console.log("error");
-    }
-  }
+  if (!state.error && state.loading) {
+    return (
+      <React.Fragment>
+        <Loader />
+      </React.Fragment>
+    );
+  } else if (!state.error && !state.loading) {
+    return (
+      <React.Fragment>
+        <Search query={query} setQuery={setQuery} />
+        {query === "" ? (
+          <UserList data={state.data.results} />
+        ) : (
+          <UserList data={filteredResults} />
+        )}
 
-  render() {
-    if (!this.state.error && this.state.loading) {
-      return (
-        <React.Fragment>
-          <Loader />
-        </React.Fragment>
-      );
-    } else if (!this.state.error && !this.state.loading) {
-      return (
-        <React.Fragment>
-          <UserList data={this.state.data.results} />
-          <div className="estorbo2">
-            <Button class="buttonList" to="/users/new" message="New user" />
-            <MoreCharacters click={this.peticion.bind(this)} />
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return <h1>Error ocurred</h1>;
-    }
+        <div className="estorbo2">
+          <Button class="buttonList" to="/users/new">
+            New user
+          </Button>
+          <MoreCharacters click={peticion} />
+        </div>
+      </React.Fragment>
+    );
+  } else {
+    return <h1>Error ocurred</h1>;
   }
 }
-export default pgUserList;
+
+function useFilteredResults(results) {
+  const [query, setQuery] = useState("");
+
+  const filteredResults = useMemo(() => {
+    const filter = results.filter(character => {
+      return character.name.toLowerCase().includes(query.toLowerCase());
+    });
+
+    return filter;
+  }, [query, results]);
+
+  return [query, setQuery, filteredResults];
+}
+
+function useTry(query) {
+  const [state, setState] = useState({
+    loading: true,
+    error: null,
+    nextPage: 1,
+    data: {
+      results: []
+    }
+  });
+
+  async function peticion() {
+    try {
+      setState(prevState => {
+        return {
+          ...prevState,
+          loading: true,
+          error: null
+        };
+      });
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?page=${state.nextPage}`
+      );
+      const data = await response.json();
+      setState(prevState => {
+        return {
+          ...prevState,
+          loading: false,
+          nextPage: state.nextPage + 1,
+          data: {
+            info: data.info,
+            results: [].concat(state.data.results, data.results)
+          }
+        };
+      });
+    } catch (error) {
+      setState({
+        ...state,
+        error: error
+      });
+    }
+  }
+
+  return [state, peticion];
+}

@@ -1,31 +1,33 @@
 import React from "react";
 import "../../styles/css/loader.css";
 
-class loader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { color: "white" };
-    this.interval();
-  }
-  interval() {
-    setInterval(() => {
-      if (this.state.color === "white") {
-        this.setState({
-          color: "orange"
-        });
-      } else {
-        this.setState({
-          color: "white"
-        });
-      }
+export default function Loader(props) {
+  const [state, setState] = React.useState("orange");
+
+  function interval() {
+    const id = setInterval(() => {
+      setState(prevState => {
+        if (prevState === "orange") {
+          return "white";
+        } else {
+          return "orange";
+        }
+      });
     }, 160);
+    return id;
   }
-  render() {
-    return (
-      <div className="loaderPort">
-        <div className={this.state.color}></div>
-      </div>
-    );
-  }
+
+  React.useEffect(() => {
+    const id = interval();
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
+  return (
+    <div className="loaderPort">
+      <div className={state}></div>
+    </div>
+  );
 }
-export default loader;

@@ -1,0 +1,20 @@
+.search {
+  width: 55%;
+  height: 35px;
+  border: solid rgb(255, 255, 255) 2px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding-left: 15px;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: rgb(71, 71, 71);
+}
+
+#grey::placeholder {
+  color: rgb(144, 144, 144);
+}
+#orange::placeholder {
+  color: rgb(231, 131, 0);
+}
